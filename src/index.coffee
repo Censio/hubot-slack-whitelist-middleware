@@ -18,6 +18,10 @@ module.exports = (robot) ->
     robot.logger.error 'whitelist is not an array!'
 
   robot.receiveMiddleware (context, next, done) ->
+    # Remove the slack formatting
+    return unless context.plaintext?
+     context.strings = (String.raw`word`) for word in context.strings)
+     next()
     # Unless the room is in the whitelist
     unless reach(context, 'response.envelope.room') in whitelist
       if context.response.message.text != undefined

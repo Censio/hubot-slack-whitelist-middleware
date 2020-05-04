@@ -8,7 +8,7 @@ path = require('path')
 module.exports = (robot) ->
 
   # Establish whitelist
-   whitelist = []
+  whitelist = []
   if process.env.HUBOT_WHITELIST
     whitelist = process.env.HUBOT_WHITELIST.split(',')
   else if process.env.HUBOT_WHITELIST_PATH

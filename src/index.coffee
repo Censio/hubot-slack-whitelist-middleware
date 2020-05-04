@@ -21,12 +21,12 @@ module.exports = (robot) ->
     # Unless the room is in the whitelist
     unless reach(context, 'response.envelope.room') in whitelist
      # Remove the slack formatting
-      return unless context.plaintext?
-        context.strings = (String.raw`word`) for word in context.strings)
-          if context.response.message.text != undefined
-            if context.response.message.text.substring(0,7)==robot.name.toLowerCase()
-              context.response.reply 'Sorry, ' + robot.name + ' is not supported on this channel'
-          context.response.message.finish()
-          done()
+    return unless context.plaintext?
+    context.strings = (String.raw`word`) for word in context.strings)
+      if context.response.message.text != undefined
+        if context.response.message.text.substring(0,7)==robot.name.toLowerCase()
+          context.response.reply 'Sorry, ' + robot.name + ' is not supported on this channel'
+      context.response.message.finish()
+      done()
     else
       next(done)

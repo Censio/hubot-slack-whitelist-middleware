@@ -28,6 +28,5 @@ module.exports = (robot) ->
               context.response.reply 'Sorry, ' + robot.name + ' is not supported on this channel'
           context.response.message.finish()
           done()
-        next()
     else
       next(done)
